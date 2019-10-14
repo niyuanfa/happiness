@@ -54,23 +54,16 @@ export default {
             fPriceZ:20,
             waterPrice:0,
             gasPrice:0,
-            elePrice:(()=>{
-                let e =  (this.ePriceS-this.ePriceZ)*0.5
-                let s = (this.sPriceS-this.sPriceZ)*0.5
-                let f = (this.fPriceS-this.fPriceZ)*0.5
-                let p = (this.pricedian - e - s - f)/3
-                return Math.round(p+e); 
-            })
         }
     },
     computed:{
-        // elePrice(){
-        //     let e =  (this.ePriceS-this.ePriceZ)*0.5
-        //     let s = (this.sPriceS-this.sPriceZ)*0.5
-        //     let f = (this.fPriceS-this.fPriceZ)*0.5
-        //     let p = (this.pricedian - e - s - f)/3
-        //     return Math.round(p+e); 
-        // },
+        elePrice(){
+            let e =  (this.ePriceS-this.ePriceZ)*0.5
+            let s = (this.sPriceS-this.sPriceZ)*0.5
+            let f = (this.fPriceS-this.fPriceZ)*0.5
+            let p = (this.pricedian - e - s - f)/3
+            return Math.round(p+e); 
+        },
         elePriceT(){
             let e =  (this.ePriceS-this.ePriceZ)*0.5
             let s = (this.sPriceS-this.sPriceZ)*0.5

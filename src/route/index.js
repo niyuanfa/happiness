@@ -10,7 +10,7 @@ const router = new Router({
 	routes: [
 		{
 			// 登录
-			path: '/toCalculate',
+			path: '/',
             name: 'toCalculate',
             component:toCalculate
         },
