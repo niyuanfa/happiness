@@ -9,31 +9,36 @@
                 <van-col span="9">上月度数</van-col>
             </van-row>
             <van-row>
-                <van-col span="4">鹅：</van-col>
-                <van-col span="9"><input v-model="ePriceS"/></van-col>
+                <van-col span="5">鹅：</van-col>
                 <van-col span="9"><input v-model="ePriceZ"/></van-col>
+                <van-col span="9"><input v-model="ePriceS"/></van-col>
             </van-row>
             <van-row>
-                <van-col span="4">绕一周：</van-col>
-                <van-col span="9"><input v-model="sPriceS"/></van-col>
-                <van-col span="9"><input v-model="sPriceZ"/></van-col>
-            </van-row>
-            <van-row>
-                <van-col span="4">法哥：</van-col>
-                <van-col span="9"><input v-model="fPriceS"/></van-col>
+                <van-col span="5">法哥：</van-col>
                 <van-col span="9"><input v-model="fPriceZ"/></van-col>
+                <van-col span="9"><input v-model="fPriceS"/></van-col>
             </van-row>
-            <span class="pay">鹅支付：<em>{{elePrice}}</em></span>
-            <span class="pay">绕一周支付：<em>{{elePriceT}}</em></span>
-            <span class="pay">法哥支付：<em>{{elePriceS}}</em></span>
+            <van-row>
+                <van-col span="5">绕一周：</van-col>
+                <van-col span="9"><input v-model="sPriceZ"/></van-col>
+                <van-col span="9"><input v-model="sPriceS"/></van-col>
+            </van-row>
+            <span class="pay">易支付：<em>{{resultsyY}}仅支付共用区域电</em></span>
+            <span class="pay">鹅支付：<em>{{resultsyE}}</em></span>
+            <span class="pay">法哥支付：<em>{{resultsyF}}</em></span>
+            <span class="pay">绕一周支付：<em>{{resultsyS}}</em></span>
         </div>
         <div class="fineprice">用水总价：<input v-model="waterPrice"/></div>
         <div class="fineprice">燃气总价：<input v-model="gasPrice"/></div>
 
-        <span class="pay">鹅总计：<em>333</em></span>
-        <span class="pay">绕一周总计：<em>333</em></span>
-        <span class="pay">法哥总计：<em>333</em></span>
+        <div class="btnJs" @click="yielePrice()">计算结果</div>
+        <span class="pay">易总付：<em>{{ZresultsyY}}</em></span>
+        <span class="pay">鹅总计：<em>{{ZresultsyE}}</em></span>
+        <span class="pay">法哥总计：<em>{{ZresultsyF}}</em></span>
+        <span class="pay">绕一周总计：<em>{{ZresultsyS}}</em></span>
         <div class="retu">注：电费按0.5/度计算，共用地区按4人计算，煤气，水按4人计算，计算所有结果保留俩位小数，计四舍五入制。</div>
+        <span class='font'>卫生间值日顺序表</span>
+        <img src="../../assets/wei.jpg"/>
     </div>
 </template>
 <script>
@@ -45,50 +50,51 @@ export default {
     name:"toCalculate",
     data(){
         return{
-            pricedian:100,
-            ePriceS:50,
-            ePriceZ:30,
-            sPriceS:100,
-            sPriceZ:60,
-            fPriceS:100,
-            fPriceZ:20,
-            waterPrice:0,
-            gasPrice:0,
-            elePrice:(()=>{
-                let e =  (this.ePriceS-this.ePriceZ)*0.5
-                let s = (this.sPriceS-this.sPriceZ)*0.5
-                let f = (this.fPriceS-this.fPriceZ)*0.5
-                let p = (this.pricedian - e - s - f)/3
-                return Math.round(p+e); 
-            })
+            pricedian:159.3,
+            ePriceZ:712,
+            ePriceS:693,
+            sPriceZ:1142,
+            sPriceS:1047,
+            fPriceZ:497,
+            fPriceS:471,
+            waterPrice:100,
+            gasPrice:100,
+            resultsyY:0,
+            resultsyE:0,
+            resultsyF:0,
+            resultsyS:0,
+            ZresultsyY:0,
+            ZresultsyE:0,
+            ZresultsyF:0,
+            ZresultsyS:0,
+            
         }
     },
-    computed:{
-        // elePrice(){
-        //     let e =  (this.ePriceS-this.ePriceZ)*0.5
-        //     let s = (this.sPriceS-this.sPriceZ)*0.5
-        //     let f = (this.fPriceS-this.fPriceZ)*0.5
-        //     let p = (this.pricedian - e - s - f)/3
-        //     return Math.round(p+e); 
-        // },
-        elePriceT(){
-            let e =  (this.ePriceS-this.ePriceZ)*0.5
-            let s = (this.sPriceS-this.sPriceZ)*0.5
-            let f = (this.fPriceS-this.fPriceZ)*0.5
-            let p = (this.pricedian - e - s - f)/3
-            return Math.round(p+s); 
-        },
-        elePriceS(){
-            let e =  (this.ePriceS-this.ePriceZ)*0.5
-            let s = (this.sPriceS-this.sPriceZ)*0.5
-            let f = (this.fPriceS-this.fPriceZ)*0.5
-            let p = (this.pricedian - e - s - f)/3
-            return Math.round(p+f); 
-        }
+    created(){
+        this.yielePrice()
     },
     watch:{
-        num(){
 
+    },
+    computed:{
+
+    },
+    methods:{
+        yielePrice(){
+            let e =  (this.ePriceZ-this.ePriceS)*0.5
+            let s = (this.sPriceZ-this.sPriceS)*0.5
+            let f = (this.fPriceZ-this.fPriceS)*0.5
+            let p = (this.pricedian - e - s - f)/4
+            this.resultsyY = parseFloat(p).toFixed(2);
+            this.resultsyE = parseFloat(p+e).toFixed(2);
+            this.resultsyF = parseFloat(p+f).toFixed(2);
+            this.resultsyS = parseFloat(p+s).toFixed(2);
+            let waterPrice  = parseFloat(this.waterPrice/4).toFixed(2);
+            let gasPrice = parseFloat(this.gasPrice/4).toFixed(2);
+            this.ZresultsyY = parseFloat(Number(this.resultsyY)+Number(waterPrice)+Number(gasPrice)).toFixed(2)
+            this.ZresultsyE = parseFloat(Number(this.resultsyE)+Number(waterPrice)+Number(gasPrice)).toFixed(2)
+            this.ZresultsyF = parseFloat(Number(this.resultsyF)+Number(waterPrice)+Number(gasPrice)).toFixed(2)
+            this.ZresultsyS = parseFloat(Number(this.resultsyS)+Number(waterPrice)+Number(gasPrice)).toFixed(2)
         }
     }
 }
@@ -183,5 +189,26 @@ export default {
         margin: 10px 0;
         padding: 15px;
         color: red;
+    }
+    .font{
+        margin-top:10px;
+        font-size: 14px;
+        display: block;
+        padding-left: 15px;
+    }
+    img{
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .btnJs{
+        font-size: 14px;
+        text-align: center;
+        height: 30px;
+        line-height: 30px;
+        width: 150px;
+        margin: 0 auto;
+        background: #f5b790;
+        color: #fff;
     }
 </style>
