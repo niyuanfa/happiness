@@ -1,40 +1,40 @@
 <template>
     <div>
         <div class="title">计算</div>
-        <span class="price">电费总价:<input v-model="pricedian"></span>
+        <span class="price">电费总价:<input type="number" v-model="pricedian"></span>
         <div class="main">
             <van-row>
-                <van-col span="4"></van-col>
+                <van-col span="5"></van-col>
                 <van-col span="9">本月度数</van-col>
                 <van-col span="9">上月度数</van-col>
             </van-row>
             <van-row>
-                <van-col span="5">鹅：</van-col>
-                <van-col span="9"><input v-model="ePriceZ"/></van-col>
-                <van-col span="9"><input v-model="ePriceS"/></van-col>
+                <van-col span="5">鹅：</van-col>
+                <van-col span="9"><input type="number" v-model="ePriceZ"/></van-col>
+                <van-col span="9"><input type="number" v-model="ePriceS"/></van-col>
             </van-row>
             <van-row>
-                <van-col span="5">法哥：</van-col>
-                <van-col span="9"><input v-model="fPriceZ"/></van-col>
-                <van-col span="9"><input v-model="fPriceS"/></van-col>
+                <van-col span="5">法哥：</van-col>
+                <van-col span="9"><input type="number" v-model="fPriceZ"/></van-col>
+                <van-col span="9"><input type="number" v-model="fPriceS"/></van-col>
             </van-row>
             <van-row>
                 <van-col span="5">绕一周：</van-col>
-                <van-col span="9"><input v-model="sPriceZ"/></van-col>
-                <van-col span="9"><input v-model="sPriceS"/></van-col>
+                <van-col span="9"><input type="number" v-model="sPriceZ"/></van-col>
+                <van-col span="9"><input type="number" v-model="sPriceS"/></van-col>
             </van-row>
             <span class="pay">易支付：<em>{{resultsyY}}仅支付共用区域电</em></span>
             <span class="pay">鹅支付：<em>{{resultsyE}}</em></span>
-            <span class="pay">法哥支付：<em>{{resultsyF}}</em></span>
+            <span class="pay">法哥支付：<em>{{resultsyF}}</em></span>
             <span class="pay">绕一周支付：<em>{{resultsyS}}</em></span>
         </div>
-        <div class="fineprice">用水总价：<input v-model="waterPrice"/></div>
-        <div class="fineprice">燃气总价：<input v-model="gasPrice"/></div>
+        <div class="fineprice">用水总价：<input type="number" v-model="waterPrice"/></div>
+        <div class="fineprice">燃气总价：<input type="number" v-model="gasPrice"/></div>
 
         <div class="btnJs" @click="yielePrice()">计算结果</div>
         <span class="pay">易总付：<em>{{ZresultsyY}}</em></span>
         <span class="pay">鹅总计：<em>{{ZresultsyE}}</em></span>
-        <span class="pay">法哥总计：<em>{{ZresultsyF}}</em></span>
+        <span class="pay">法哥总计：<em>{{ZresultsyF}}</em></span>
         <span class="pay">绕一周总计：<em>{{ZresultsyS}}</em></span>
         <div class="retu">注：电费按0.5/度计算，共用地区按4人计算，煤气，水按4人计算，计算所有结果保留俩位小数，计四舍五入制。</div>
         <span class='font'>卫生间值日顺序表</span>
