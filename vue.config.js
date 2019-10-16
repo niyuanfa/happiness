@@ -1,4 +1,6 @@
 module.exports={
+	publicPath: '/happiness',
+	outputDir: 'dist/happiness',
     // css: {
 	// 	extract: {
 	// 		filename: `css/style.[hash].css`
