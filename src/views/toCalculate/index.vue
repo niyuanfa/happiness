@@ -14,7 +14,7 @@
                 <van-col span="9"><input type="number" v-model="ePriceS"/></van-col>
             </van-row>
             <van-row>
-                <van-col span="5">法哥：</van-col>
+                <van-col span="5">武汉夫妻：</van-col>
                 <van-col span="9"><input type="number" v-model="fPriceZ"/></van-col>
                 <van-col span="9"><input type="number" v-model="fPriceS"/></van-col>
             </van-row>
@@ -23,10 +23,11 @@
                 <van-col span="9"><input type="number" v-model="sPriceZ"/></van-col>
                 <van-col span="9"><input type="number" v-model="sPriceS"/></van-col>
             </van-row>
-            <span class="pay">易支付：<em>{{resultsyY}}仅支付共用区域电</em></span>
-            <span class="pay">鹅支付：<em>{{resultsyE}}</em></span>
-            <span class="pay">法哥支付：<em>{{resultsyF}}</em></span>
-            <span class="pay">绕一周支付：<em>{{resultsyS}}</em></span>
+            <span class="pay">易支付电：<em>{{resultsyY}}仅支付共用区域电</em></span>
+            <span class="pay">鹅支付电：<em>{{resultsyE}}</em></span>
+            <span class="pay">武汉夫妻支付电：<em>{{resultsyF}}</em></span>
+            <span class="pay">武汉夫妻支付电：<em>{{gebi}}仅支付共用区域电</em></span>
+            <span class="pay">绕一周支付电：<em>{{resultsyS}}</em></span>
         </div>
         <div class="fineprice">用水总价：<input type="number" v-model="waterPrice"/></div>
         <div class="fineprice">燃气总价：<input type="number" v-model="gasPrice"/></div>
@@ -34,11 +35,10 @@
         <div class="btnJs" @click="yielePrice()">计算结果</div>
         <span class="pay">易总付：<em>{{ZresultsyY}}</em></span>
         <span class="pay">鹅总计：<em>{{ZresultsyE}}</em></span>
-        <span class="pay">法哥总计：<em>{{ZresultsyF}}</em></span>
+        <span class="pay">武汉夫妻总计：<em>{{ZresultsyF}}</em></span>
+        <span class="pay">武汉夫妻总计：<em>{{Zgebi}}</em></span>
         <span class="pay">绕一周总计：<em>{{ZresultsyS}}</em></span>
-        <div class="retu">注：电费按0.5/度计算，共用地区按4人计算，煤气，水按4人计算，计算所有结果保留俩位小数，计四舍五入制。</div>
-        <span class='font'>卫生间值日顺序表</span>
-        <img src="../../assets/wei.jpg"/>
+        <div class="retu">注：电费按0.5/度计算，共用地区按5人计算，煤气，水按5人计算，计算所有结果保留俩位小数，计四舍五入制。</div>
     </div>
 </template>
 <script>
@@ -50,16 +50,17 @@ export default {
     name:"toCalculate",
     data(){
         return{
-            pricedian:135.2,
-            ePriceZ:777,
-            ePriceS:739,
-            sPriceZ:1200,
-            sPriceS:1155,
-            fPriceZ:521,
-            fPriceS:507,
+            pricedian:187.7,
+            ePriceZ:852,
+            ePriceS:852,
+            sPriceZ:1575,
+            sPriceS:1575,
+            fPriceZ:650,
+            fPriceS:650,
             waterPrice:0,
             gasPrice:0,
             resultsyY:0,
+            gebi:0,
             resultsyE:0,
             resultsyF:0,
             resultsyS:0,
@@ -67,6 +68,7 @@ export default {
             ZresultsyE:0,
             ZresultsyF:0,
             ZresultsyS:0,
+            Zgebi:0,
             
         }
     },
@@ -84,14 +86,17 @@ export default {
             let e =  (this.ePriceZ-this.ePriceS)*0.5
             let s = (this.sPriceZ-this.sPriceS)*0.5
             let f = (this.fPriceZ-this.fPriceS)*0.5
-            let p = (this.pricedian - e - s - f)/4
+            let p = (this.pricedian - e - s - f )/5
             this.resultsyY = parseFloat(p).toFixed(2);
+            this.gebi = parseFloat(p).toFixed(2)
+
             this.resultsyE = parseFloat(p+e).toFixed(2);
             this.resultsyF = parseFloat(p+f).toFixed(2);
             this.resultsyS = parseFloat(p+s).toFixed(2);
-            let waterPrice  = parseFloat(this.waterPrice/4).toFixed(2);
-            let gasPrice = parseFloat(this.gasPrice/4).toFixed(2);
+            let waterPrice  = parseFloat(this.waterPrice/5).toFixed(2);
+            let gasPrice = parseFloat(this.gasPrice/5).toFixed(2);
             this.ZresultsyY = parseFloat(Number(this.resultsyY)+Number(waterPrice)+Number(gasPrice)).toFixed(2)
+            this.Zgebi = parseFloat(Number(this.resultsyY)+Number(waterPrice)+Number(gasPrice)).toFixed(2)
             this.ZresultsyE = parseFloat(Number(this.resultsyE)+Number(waterPrice)+Number(gasPrice)).toFixed(2)
             this.ZresultsyF = parseFloat(Number(this.resultsyF)+Number(waterPrice)+Number(gasPrice)).toFixed(2)
             this.ZresultsyS = parseFloat(Number(this.resultsyS)+Number(waterPrice)+Number(gasPrice)).toFixed(2)
