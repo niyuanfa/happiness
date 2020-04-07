@@ -14,7 +14,7 @@
                 <van-col span="9"><input type="number" v-model="ePriceS"/></van-col>
             </van-row>
             <van-row>
-                <van-col span="5">武汉夫妻：</van-col>
+                <van-col span="5">一路相随：</van-col>
                 <van-col span="9"><input type="number" v-model="fPriceZ"/></van-col>
                 <van-col span="9"><input type="number" v-model="fPriceS"/></van-col>
             </van-row>
@@ -25,8 +25,8 @@
             </van-row>
             <span class="pay">易支付电：<em>{{resultsyY}}仅支付共用区域电</em></span>
             <span class="pay">鹅支付电：<em>{{resultsyE}}</em></span>
-            <span class="pay">武汉夫妻支付电：<em>{{resultsyF}}</em></span>
-            <span class="pay">武汉夫妻支付电：<em>{{gebi}}仅支付共用区域电</em></span>
+            <span class="pay">一路相随支付电：<em>{{resultsyF}}</em></span>
+            <span class="pay">一路相随支付电：<em>{{gebi}}仅支付共用区域电</em></span>
             <span class="pay">绕一周支付电：<em>{{resultsyS}}</em></span>
         </div>
         <div class="fineprice">用水总价：<input type="number" v-model="waterPrice"/></div>
@@ -35,8 +35,8 @@
         <div class="btnJs" @click="yielePrice()">计算结果</div>
         <span class="pay">易总付：<em>{{ZresultsyY}}</em></span>
         <span class="pay">鹅总计：<em>{{ZresultsyE}}</em></span>
-        <span class="pay">武汉夫妻总计：<em>{{ZresultsyF}}</em></span>
-        <span class="pay">武汉夫妻总计：<em>{{Zgebi}}</em></span>
+        <span class="pay">一路相随总计：<em>{{ZresultsyF}}</em></span>
+        <span class="pay">一路相随总计：<em>{{Zgebi}}</em></span>
         <span class="pay">绕一周总计：<em>{{ZresultsyS}}</em></span>
         <div class="retu">注：电费按0.5/度计算，共用地区按5人计算，煤气，水按5人计算，计算所有结果保留俩位小数，计四舍五入制。</div>
     </div>
