@@ -50,12 +50,12 @@ export default {
     name:"toCalculate",
     data(){
         return{
-            pricedian:187.7,
+            pricedian:161.7,
             ePriceZ:852,
             ePriceS:852,
             sPriceZ:1575,
             sPriceS:1575,
-            fPriceZ:650,
+            fPriceZ:659,
             fPriceS:650,
             waterPrice:0,
             gasPrice:0,
