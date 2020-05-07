@@ -25,7 +25,7 @@
             </van-row>
             <span class="pay">易支付电：<em>{{resultsyY}}仅支付共用区域电</em></span>
             <span class="pay">鹅支付电：<em>{{resultsyE}}</em></span>
-            <span class="pay">一路相随支付电：<em>{{resultsyF}}</em></span>
+            <span class="pay">笑看人生支付电：<em>{{resultsyF}}</em></span>
             <span class="pay">一路相随支付电：<em>{{gebi}}仅支付共用区域电</em></span>
             <span class="pay">绕一周支付电：<em>{{resultsyS}}</em></span>
         </div>
@@ -35,7 +35,7 @@
         <div class="btnJs" @click="yielePrice()">计算结果</div>
         <span class="pay">易总付：<em>{{ZresultsyY}}</em></span>
         <span class="pay">鹅总计：<em>{{ZresultsyE}}</em></span>
-        <span class="pay">一路相随总计：<em>{{ZresultsyF}}</em></span>
+        <span class="pay">笑看人生总计：<em>{{ZresultsyF}}</em></span>
         <span class="pay">一路相随总计：<em>{{Zgebi}}</em></span>
         <span class="pay">绕一周总计：<em>{{ZresultsyS}}</em></span>
         <div class="retu">注：电费按0.5/度计算，共用地区按5人计算，煤气，水按5人计算，计算所有结果保留俩位小数，计四舍五入制。</div>
@@ -50,13 +50,13 @@ export default {
     name:"toCalculate",
     data(){
         return{
-            pricedian:161.7,
-            ePriceZ:852,
-            ePriceS:852,
-            sPriceZ:1575,
-            sPriceS:1575,
+            pricedian:152.6,
+            ePriceZ:885,
+            ePriceS:885,
+            sPriceZ:1606,
+            sPriceS:1606,
             fPriceZ:659,
-            fPriceS:650,
+            fPriceS:659,
             waterPrice:0,
             gasPrice:0,
             resultsyY:0,
